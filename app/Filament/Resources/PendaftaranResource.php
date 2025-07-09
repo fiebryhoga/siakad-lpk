@@ -105,7 +105,6 @@ class PendaftaranResource extends Resource
                     ->icon('heroicon-o-trash')
                     ->visible(fn (Pendaftaran $record): bool => $record->status_pendaftaran === 'pending'),
                 
-                Tables\Actions\ViewAction::make()->label('Lihat Detail'),
             ]);
     }
 

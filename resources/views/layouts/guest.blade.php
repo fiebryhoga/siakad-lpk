@@ -5,29 +5,22 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
-        {{-- Mengubah judul halaman --}}
-        <title>LPK ASA Metro Login</title> 
+        {{-- Judul halaman --}}
+        <title>LPK ASA Metro Login</title>
 
+        <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">
         <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
 
+        <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
-    {{-- Hapus kelas dark mode dari body jika tidak digunakan, atau sesuaikan --}}
     <body class="font-sans text-gray-900 antialiased">
-        {{-- Mengubah latar belakang menjadi putih polos --}}
-        {{-- Menghapus div yang berisi logo aplikasi bawaan --}}
-        <div class="min-h-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0 bg-white dark:bg-white">
-            {{-- Bagian ini (yang sebelumnya berisi logo) dihapus --}}
-            {{-- <div>
-                <a href="/">
-                    <x-application-logo class="w-20 h-20 fill-current text-gray-500" />
-                </a>
-            </div> --}}
-
-            {{-- Mengubah div wrapper form: menghapus shadow dan rounded corners --}}
-            {{-- Menjaga lebar dan padding, serta memastikan background putih --}}
-            <div class="w-full sm:max-w-md md:max-w-6xl mt-6 px-6 py-4 bg-white dark:bg-white overflow-hidden">
+        {{-- Container utama untuk meletakkan konten di tengah dengan background putih --}}
+        <div class="min-h-screen flex flex-col sm:justify-center items-center sm:pt-0 bg-white">
+            
+            {{-- Wrapper untuk konten, dengan lebar maksimum --}}
+            <div class="w-full sm:max-w-5xl px-0 bg-white overflow-hidden">
                 {{ $slot }}
             </div>
         </div>
