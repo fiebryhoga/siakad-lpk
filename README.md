@@ -7,55 +7,96 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
-## About Laravel
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+# 📚 SIAKAD LPK - Sistem Informasi Akademik
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+SIAKAD LPK adalah sistem informasi akademik berbasis Laravel 12 yang digunakan untuk mengelola data siswa, guru, dan admin (staff) dalam lembaga pelatihan kerja (LPK). Sistem ini memiliki **multi-role user** yang masing-masing memiliki dashboard panel tersendiri.
 
-## Learning Laravel
+## 🎯 Fitur Utama
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+- Manajemen akun untuk **Siswa**, **Guru**, dan **Admin (Staff)**
+- Autentikasi dan otorisasi multi-role
+- Panel dashboard terpisah sesuai peran
+- Seeder user default untuk kemudahan uji coba
+- Dibangun menggunakan Laravel 12 (PHP 8.2+)
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+---
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+## 🛠️ Instalasi dan Setup
 
-## Laravel Sponsors
+Ikuti langkah-langkah berikut untuk menjalankan project ini secara lokal:
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+### 1. Clone Repository
 
-### Premium Partners
+```bash
+git clone https://github.com/fiebryhoga/siakad-lpk.git
+cd siakad-lpk
+````
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+### 2. Install Dependensi
 
-## Contributing
+```bash
+composer install
+npm install && npm run dev
+```
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+### 3. Setup Environment
 
-## Code of Conduct
+```bash
+cp .env.example .env
+```
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+Edit `.env` untuk menyesuaikan konfigurasi database kamu, lalu jalankan:
 
-## Security Vulnerabilities
+```bash
+php artisan key:generate
+```
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+### 4. Setup Database
 
-## License
+Pastikan database sudah dibuat, lalu jalankan:
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+```bash
+php artisan migrate --seed
+```
+
+Seeder akan membuat akun-akun default untuk setiap role.
+
+---
+
+## 👤 Akun Default (Seeder)
+
+| Role  | Email                      | Password |
+| ----- | -------------------------- | -------- |
+| Admin | admin@lpk.com              | password |
+| Guru  | ani.guru@lpk.com           | password |
+| Siswa | budi.santoso@lpk.com       | password |
+
+Silakan login ke aplikasi menggunakan email dan password di atas sebagai contoh yang sudah dimasukkan dalam seeder.
+
+---
+
+## 🔐 Login & Role-Based Access
+
+Setelah login, pengguna akan diarahkan ke dashboard masing-masing berdasarkan peran:
+
+* `/admin/dashboard` untuk **Admin**
+* `/guru/dashboard` untuk **Guru**
+* `/siswa/dashboard` untuk **Siswa**
+
+---
+
+## 📦 Stack Teknologi
+
+* Laravel 12
+* PHP 8.2+
+* MySQL / MariaDB
+* TailwindCSS (optional)
+* Vite & Laravel Mix
+
+---
+
+## 🤝 Kontribusi & 📄 Lisensi
+
+Project ini sepenuhnya punya hafa tech hub - silahkan lakukan Pull request dan masukan sangat diterima dengan menyatakan nama dan kontak untuk dihubungi oleh pihak developer. Silakan buat fork, lakukan perubahan, dan kirim PR.
