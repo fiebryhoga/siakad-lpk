@@ -1,5 +1,4 @@
 <x-guest-layout>
-    <!-- Wrapper utama untuk form registrasi -->
     <div class="w-full max-w-6xl mx-auto px-4 sm:px-0 lg:px-0 py-6">
         
         <!-- Judul Halaman -->
@@ -182,7 +181,6 @@
             const passwordConfirmationInput = document.getElementById('password_confirmation');
 
             if (passwordInput && passwordConfirmationInput) {
-                // Set initial value in case of old input being populated
                 passwordConfirmationInput.value = passwordInput.value;
                 
                 passwordInput.addEventListener('input', function () {
